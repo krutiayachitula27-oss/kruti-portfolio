@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Fashion business portfolio: VM × CRM, Assortment Strategy, Service Design, Startup Pitch and Spatial Design.">
+<title>Kruti Ayachitula Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Playfair+Display:wght@500;700;800&display=swap">
+<style>
+:root{--ink:#161212;--mute:#6f6763;--line:#e4dfda;--bg:#fff;--serif:'Playfair Display',Georgia,serif;--sans:'Jost','Helvetica Neue',Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.55;font-size:17px}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:600}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px;gap:16px}
+nav b{font-family:var(--serif);font-size:17px}
+nav div{display:flex;gap:18px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;overflow-x:auto;white-space:nowrap}
+nav a{text-decoration:none}nav a:hover{text-decoration:underline}
+.hero{min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 20px}
+.hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(64px,13vw,150px);line-height:1;margin:0}
+.hero p{margin:18px 0 0;letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--mute)}
+section{padding:80px 0}
+h2{font-family:var(--serif);font-weight:700;font-size:clamp(32px,5vw,54px);line-height:1.1;margin:8px 0 18px}
+h3{font-family:var(--serif);font-size:24px;margin:0 0 8px}
+.lede{font-size:20px;max-width:46em}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+@media(max-width:800px){.cols{grid-template-columns:1fr}}
+.rowline{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--ink)}
+.rowline .eyebrow{padding-top:3px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1.5px solid var(--ink);border-radius:12px;width:56px;height:56px;display:grid;place-items:center;font-weight:600;font-size:18px}
+.chipw{text-align:center;font-size:12px;color:var(--mute)}
+.edu{border-left:2px solid var(--ink);padding-left:18px;margin-left:5px}
+.edu p{margin:0 0 16px}.edu small{display:block;color:var(--mute);letter-spacing:.16em;text-transform:uppercase;font-size:11px}
+.proj{padding:90px 0;border-top:1px solid var(--line)}
+.proj .num{font-family:var(--serif);font-size:15px}
+.proj header{margin-bottom:30px}
+.card{border-radius:22px;padding:26px}
+.grid{display:grid;gap:16px}
+.g5{grid-template-columns:repeat(5,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1fr 1fr}
+@media(max-width:860px){.g5,.g4{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr}.g2{grid-template-columns:1fr}}
+.big{font-family:var(--serif);font-size:44px;font-weight:700;line-height:1}
+.small{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.mute{color:var(--mute)}
+figure{margin:0}figure img{border-radius:18px;width:100%}figcaption{font-size:13px;color:var(--mute);margin-top:8px}
+/* bear house */
+#bear{background:#ef4741;color:#f3e9df}#bear .mute{color:#f8cfc8}#bear h2,#bear h3{color:#f6ece2}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 12px}
+.tab{background:transparent;border:1.5px solid #f3e9df;color:#f3e9df;border-radius:99px;padding:8px 16px;font:inherit;font-size:14px;cursor:pointer}
+.tab[aria-selected=true]{background:#f3e9df;color:#b3241f}
+.frame{background:#fff;border-radius:18px;overflow:hidden;border:0}
+.frame iframe{width:100%;height:680px;border:0;display:block}
+.frameinfo{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;margin-top:10px}
+.stages{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:28px 0}
+@media(max-width:860px){.stages{grid-template-columns:repeat(2,1fr)}}
+.stage{background:rgba(255,255,255,.14);border-radius:14px;padding:14px;font-size:14px}
+.stage b{display:block;font-family:var(--serif);font-size:20px}
+/* masaba */
+#masaba{background:#f7f5f1}
+#masaba .accent{color:#8a1a1a}
+.sku{background:#fff}.sku .big{color:#b25b4e}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:16px;overflow:hidden;font-size:15px}
+td,th{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line)}th{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+td.r{color:#b25b4e;font-weight:600;letter-spacing:.1em}
+.bars{display:flex;align-items:flex-end;gap:14px;height:230px;background:#fff;border-radius:18px;padding:22px 22px 12px}
+.bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;font-size:13px}
+.bar i{display:block;width:100%;background:#b25b4e;border-radius:6px 6px 0 0}.bar span{margin-top:6px}.bar b{margin-bottom:4px}
+.dark{background:#1e1e1e;color:#fff;border-radius:18px;padding:22px;display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+.dark .big{font-size:30px;font-family:var(--sans);font-weight:600}
+/* healing */
+#heal{background:#f4f8f7;color:#08364a}#heal h2,#heal h3{color:#08364a}
+.teal{color:#25b0aa}.navy{background:#08364a;color:#fff}
+.hbox{background:#fff;border-radius:22px;padding:24px}
+.empathy{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.empathy div{border-radius:20px;padding:20px}
+@media(max-width:600px){.empathy{grid-template-columns:1fr}}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;text-align:center}
+@media(max-width:700px){.steps{grid-template-columns:repeat(3,1fr)}}
+.steps div b{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:#08364a;color:#fff;margin:0 auto 8px}
+.steps .pain b{background:#ee8b73}.steps .relief b{background:#25b0aa}
+/* sutra */
+#sutra{background:#14202c;color:#f1e9dc}#sutra h2,#sutra h3{color:#f1e9dc}
+#sutra .gold{color:#b58a35}#sutra .decks{display:grid;gap:22px;margin-top:34px}#sutra .deck{margin:0;border-radius:14px;overflow:hidden;border:1px solid #ffffff22}#sutra .deck img{width:100%;height:auto}
+.gcard{background:#faf6ee;color:#161212;border:1px solid #e0d3bd}
+.gcard.dk{background:#101820;color:#f1e9dc;border-color:#101820}
+.gcard .big{color:#b58a35}
+.price{font-family:var(--serif);font-size:44px;color:#b58a35;font-weight:700}
+.gcard ul{padding-left:18px;margin:12px 0}
+/* spatial */
+#spatial{background:#fbf7f0;color:#2a2a24}#spatial h2,#spatial h3{color:#2f4a2a}
+#spatial .terra{color:#b8563b}
+#spatial .pal{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 8px}
+#spatial .pal span{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.06em}
+#spatial .pal i{width:18px;height:18px;border-radius:50%;display:inline-block;border:1px solid #0002}
+#spatial figure{background:#fff;border-radius:18px;padding:12px;border:1px solid #e8dfd0}
+footer{padding:100px 20px 60px;text-align:center}
+footer h2{font-size:clamp(48px,9vw,110px);margin:0 0 20px}
+footer a{display:inline-block;margin:6px 14px;font-size:20px}
+.htabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 12px}.htab{background:transparent;border:1.5px solid #002F42;color:#002F42;border-radius:99px;padding:8px 16px;font:inherit;font-size:14px;cursor:pointer}.htab[aria-selected=true]{background:#002F42;color:#fff}.hframe{background:#DCEBF4;border-radius:18px;overflow:hidden}.hframe iframe{width:100%;height:860px;border:0;display:block}.hinfo{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;margin-top:10px}
+#sutra .site{margin-top:44px;display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;border-top:1px solid #ffffff33;padding-top:36px}#sutra .site h3{margin:0 0 10px}#sutra .site p{margin:0 0 14px;color:#c9bda8}#sutra .site .tiers{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 20px}#sutra .site .tiers span{border:1px solid #ffffff44;border-radius:99px;padding:6px 14px;font-size:14px}#sutra .site a.visit{display:inline-block;background:#f1e9dc;color:#14202c;padding:13px 22px;border-radius:99px;text-decoration:none;font-weight:600;letter-spacing:.04em}#sutra .site .url{font-size:13px;color:#c9bda8;margin-top:12px;word-break:break-all}#sutra .site ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}#sutra .site li{border-left:2px solid #b58a35;padding-left:14px}#sutra .site li b{display:block;font-family:var(--serif);font-size:18px}#sutra .site li small{color:#c9bda8;font-size:14px}@media(max-width:800px){#sutra .site{grid-template-columns:1fr}}</style>
+</head>
+<body>
+
+
+<nav><div class="wrap"><b>Kruti Ayachitula</b><div><a href="#about">About</a><a href="#bear">VM × CRM</a><a href="#masaba">Assortment Strategy</a><a href="#heal">Service Design</a><a href="#sutra">Startup Pitch</a><a href="#spatial">Spatial Design</a><a href="#contact">Contact</a></div></div></nav>
+
+<header class="hero"><div><h1>Portfolio.</h1><p>Kruti Ayachitula · Fashion business · Visual merchandising · Strategy</p></div></header>
+
+<section id="about"><div class="wrap">
+<div class="cols">
+<div>
+<div class="eyebrow">About</div>
+<h2>Where creativity meets commerce.</h2>
+<p class="lede">I work across visual merchandising, retail strategy, consumer behaviour and brand experience. My approach combines commercial thinking with a creative lens — understanding not just what a brand sells, but how people discover, experience and connect with it.</p>
+<p class="mute">This portfolio is a glimpse into how I think, analyse and build brand experiences.</p>
+<div style="margin-top:40px"><div class="eyebrow">Education</div>
+<div class="edu" style="margin-top:14px"><p><small>Current</small>MBA in Fashion Lifestyle Business<small>Pearl Academy, Bangalore</small></p><p><small>Graduated</small>BSc in Fashion Design<small>INIFD, Annamali University</small></p></div></div>
+</div>
+<div>
+<div class="rowline"><span class="eyebrow">Hard skills</span><span>Visual Merchandising, Assortment Planning, Size Ratios, Retail Strategy, Consumer Insights, Product Strategy</span></div>
+<div class="rowline"><span class="eyebrow">Soft skills</span><span>Creative Thinking, Visual Storytelling, Research, Presentation, Consumer-Centric Problem Solving</span></div>
+<div class="rowline"><span class="eyebrow">Softwares</span><div class="chips">
+<div class="chipw"><div class="chip">Ps</div>Photoshop</div><div class="chipw"><div class="chip">Ai</div>Illustrator</div><div class="chipw"><div class="chip">Id</div>InDesign</div><div class="chipw"><div class="chip">Xl</div>Excel</div><div class="chipw"><div class="chip">Pp</div>PowerPoint</div><div class="chipw"><div class="chip">SU</div>SketchUp</div></div></div>
+<div class="rowline"><span class="eyebrow">Projects</span><div>01 &nbsp;VM × CRM — The Bear House<br>02 &nbsp;Assortment Strategy — Masaba<br>03 &nbsp;Service Design — Healing the Wait<br>04 &nbsp;Startup Pitch — Sutra Edit<br>05 &nbsp;Spatial Design Reimagined — café courtyard concept to space</div></div>
+</div></div></div></section>
+
+<!-- 01 -->
+<section class="proj" id="bear"><div class="wrap">
+<header><span class="num">01</span><div class="eyebrow">The Bear House · Visual merchandising</div><h2>VM × CRM</h2>
+<p class="lede">Visual merchandising as a physical CRM touchpoint. I mapped the in-store journey from the façade to the repeat visit, then built three interactive views to show how a single VM change moves footfall, conversion and return.</p></header>
+<figure><img src="slides/bearhouse-storefront.jpg" alt="The Bear House storefront with arched entrance and bear mannequin" loading="lazy"><figcaption style="color:#f8cfc8">The Bear House storefront.</figcaption></figure>
+<div class="stages">
+<div class="stage"><b>01</b>Discover<br><span class="mute">Façade &amp; window</span></div>
+<div class="stage"><b>02</b>Enter<br><span class="mute">Bear mannequins</span></div>
+<div class="stage"><b>03</b>Explore<br><span class="mute">Colour-blocked wall</span></div>
+<div class="stage"><b>04</b>Consider<br><span class="mute">Looks &amp; trial rooms</span></div>
+<div class="stage"><b>05</b>Purchase<br><span class="mute">Billing &amp; packaging</span></div>
+<div class="stage"><b>06</b>Return<br><span class="mute">Fresh-drop displays</span></div>
+</div>
+<div class="eyebrow">Interactive views</div>
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" aria-selected="true" data-src="interactive/journey.html">CRM journey</button>
+<button class="tab" role="tab" aria-selected="false" data-src="interactive/touchpoints3d.html">3D touchpoints</button>
+<button class="tab" role="tab" aria-selected="false" data-src="interactive/crm-live.html">Live CRM demo</button>
+</div>
+<div class="frame"><iframe id="viewer" title="Bear House interactive" src="interactive/journey.html" loading="lazy"></iframe></div>
+<div class="frameinfo"><span class="mute">Customer data in the live demo is simulated.</span><a id="full" href="interactive/journey.html" target="_blank" rel="noopener">Open full screen ↗</a></div>
+</div></section>
+
+<!-- 02 -->
+<section class="proj" id="masaba"><div class="wrap">
+<header><span class="num">02</span><div class="eyebrow accent">Masaba · Pricing plan</div><h2>Assortment Strategy</h2>
+<p class="lede">An assortment, size-ratio and pricing plan across five collections: 112 styles and 1,008 SKUs, with depth that follows demand and margin that rises with differentiation.</p></header>
+<figure style="margin-bottom:34px"><img src="slides/masaba-croquis.jpg" alt="Collection lineup: one croquie from each of five collections" loading="lazy"></figure>
+<h3>Assortment architecture</h3>
+<div class="grid g5" style="margin:14px 0">
+<div class="card sku"><div class="small">Festive Bias</div><div class="big">147</div><div class="small mute">Total SKUs</div><p class="mute">21 styles × 7 SKU/style</p></div>
+<div class="card sku"><div class="small">Hi-End Prêt</div><div class="big">168</div><div class="small mute">Total SKUs</div><p class="mute">21 styles × 8 SKU/style</p></div>
+<div class="card sku"><div class="small">Wedding Guest</div><div class="big">210</div><div class="small mute">Total SKUs</div><p class="mute">21 styles × 10 SKU/style</p></div>
+<div class="card sku"><div class="small">Heritage Remix</div><div class="big">147</div><div class="small mute">Total SKUs</div><p class="mute">21 styles × 7 SKU/style</p></div>
+<div class="card sku"><div class="small">Print Your Personality</div><div class="big">336</div><div class="small mute">Total SKUs</div><p class="mute">28 styles × 12 SKU/style</p></div>
+</div>
+<p><b>112</b> total styles · <b style="color:#b25b4e">1,008</b> total SKUs · Strategic role: core volume / occasion growth / brand-DNA statements</p>
+<h3 style="margin-top:46px">Depth follows demand</h3>
+<table><tr><th>Category</th><th>XS : S : M : L : XL</th><th>Logic</th></tr>
+<tr><td>Festive Bias</td><td class="r">1 : 1 : 2 : 2 : 1</td><td>M / L focus</td></tr>
+<tr><td>Hi-End Prêt</td><td class="r">1 : 1 : 2 : 2 : 2</td><td>Higher XL</td></tr>
+<tr><td>Wedding Guest</td><td class="r">2 : 2 : 2 : 2 : 2</td><td>Equal depth</td></tr>
+<tr><td>Print Your Personality</td><td class="r">2 : 2 : 2 : 3 : 3</td><td>L / XL push</td></tr></table>
+<p class="mute">Core M/L depth · broader XL in structured and expressive categories · controlled extremes to limit overstock.</p>
+<h3 style="margin-top:46px">Margin ladder by category</h3>
+<div class="bars" aria-label="Gross margin by category">
+<div class="bar"><b>52%</b><i style="height:52%"></i><span>Festive</span></div>
+<div class="bar"><b>57%</b><i style="height:57%"></i><span>Prêt</span></div>
+<div class="bar"><b>58%</b><i style="height:58%"></i><span>Wedding</span></div>
+<div class="bar"><b>53%</b><i style="height:53%"></i><span>Heritage</span></div>
+<div class="bar"><b>66%</b><i style="height:66%"></i><span>Print</span></div></div>
+<div class="grid g4" style="margin-top:16px">
+<div class="card sku"><div class="big" style="font-size:28px">₹1,52,000</div><div class="small mute">Avg MRP / print</div></div>
+<div class="card sku"><div class="big" style="font-size:28px">₹1,27,680</div><div class="small mute">Revenue / SKU @ 70%</div></div>
+<div class="card sku"><div class="big" style="font-size:28px">66%</div><div class="small mute">Highest gross margin</div></div>
+<div class="card sku"><div class="big" style="font-size:28px">40→60%</div><div class="small mute">Category margin range</div></div></div>
+<h3 style="margin-top:46px">Three price tiers. One bridge-to-luxury strategy.</h3>
+<div class="grid g3" style="margin:14px 0">
+<div class="card sku"><div class="small mute">Entry</div><div class="big" style="font-size:28px">₹84,000–₹95,000</div><b>Accessible occasion</b><p class="mute">Kaftans · tiered dresses · suit sets</p></div>
+<div class="card sku"><div class="small mute">Mid</div><div class="big" style="font-size:28px">₹1.00L–₹1.27L</div><b>Core volume</b><p class="mute">Silk blends · structured silhouettes · signature prints</p></div>
+<div class="card sku"><div class="small mute">Premium</div><div class="big" style="font-size:28px">₹1.35L–₹1.87L</div><b>Statement</b><p class="mute">Gowns · anarkalis · velvet / mulberry silk / metallics</p></div></div>
+<div class="dark"><div><div class="big">40% 45% 50% 60% 60%</div><div class="small" style="opacity:.7">Margin ladder</div></div><div>40% markup → Heritage Remix Lab &nbsp;|&nbsp; 80% markup → Print Your Personality</div></div>
+<details style="margin-top:34px"><summary class="small" style="cursor:pointer">Working sheets</summary><div class="grid g2" style="margin-top:14px"><figure><img src="slides/sheet-assortment.svg" alt="sheet-assortment" loading="lazy"></figure><figure><img src="slides/sheet-size-ratio.svg" alt="sheet-size-ratio" loading="lazy"></figure><figure><img src="slides/sheet-margin-pricing.svg" alt="sheet-margin-pricing" loading="lazy"></figure><figure><img src="slides/sheet-dashboard.svg" alt="sheet-dashboard" loading="lazy"></figure></div></details>
+<p class="mute" style="margin-top:34px">The collection has been inspired by the brand House of Masaba.</p>
+</div></section>
+
+<!-- 03 -->
+<section class="proj" id="heal"><div class="wrap">
+<header><span class="num">03</span><div class="eyebrow teal">Healing the Wait · Research &amp; experience strategy</div><h2>Service Design</h2>
+<p class="lede">An app designed to make hospital waiting more transparent, informed and reassuring. Built through design thinking and patient journey research, it uses real-time queue updates and multilingual accessibility to reduce uncertainty and communication gaps.</p></header>
+<h3>Waiting is emotional before it is operational</h3>
+<div class="grid g2" style="margin:14px 0 30px">
+<div class="card navy"><div class="big" style="font-size:34px">UNCERTAINTY</div><div style="letter-spacing:.1em">AMPLIFIES THE WAIT</div><p style="margin-top:22px">People were not only frustrated by duration — they lacked visibility into position, timing and delays.</p></div>
+<div class="grid g3"><div class="hbox"><div class="big">66%</div><div class="small teal">Boredom</div></div><div class="hbox"><div class="big">60%</div><div class="small teal">Anxiety</div></div><div class="hbox"><div class="big">40%</div><div class="small teal">Frustration</div></div>
+<div class="hbox" style="grid-column:1/-1;background:#c1e3e6"><div class="small">Research snapshot</div><p style="margin:6px 0 0">Waits ranged from 15 min to more than an hour; common coping was checking phones, asking staff, or waiting silently.</p></div></div></div>
+<h3>Inside the patient's head</h3>
+<div class="empathy" style="margin:14px 0 30px">
+<div style="background:#c1e3e6"><div class="small teal">Thinks</div>“Why is it taking so long?”</div>
+<div style="background:#f8ded6"><div class="small teal">Feels</div>Anxious · bored · frustrated</div>
+<div style="background:#d6efe4"><div class="small teal">Says</div>“I wish I knew my position.”</div>
+<div style="background:#fff"><div class="small teal">Does</div>Checks phone · asks staff · waits</div></div>
+<h3>The wait breaks in three places</h3>
+<div class="grid g3" style="margin:14px 0 30px">
+<div class="card navy"><div class="big teal">01</div><b>No visibility</b><p>“Where am I in the queue?”</p></div>
+<div class="card navy"><div class="big teal">02</div><b>No reassurance</b><p>“Why are others going first?”</p></div>
+<div class="card navy"><div class="big teal">03</div><b>No inclusion</b><p>“What if I can’t use the app?”</p></div></div>
+<p class="card" style="background:#25b0aa;color:#08364a;font-weight:600">Design opportunity → Make waiting visible, humane and hybrid.</p>
+<h3 style="margin-top:40px">From arrival to exit</h3>
+<div class="steps" style="margin:16px 0 34px">
+<div><b>01</b>Arrive<br><span class="mute">orient</span></div><div><b>02</b>Register<br><span class="mute">capture</span></div>
+<div class="pain"><b>03</b>Wait<br><span class="mute">pain peak: no ETA, no position</span></div>
+<div class="relief"><b>04</b>Update<br><span class="mute">relief: live status + alerts</span></div>
+<div><b>05</b>Consult<br><span class="mute">care</span></div><div><b>06</b>Exit<br><span class="mute">close</span></div></div>
+<div class="eyebrow">Design thinking process</div>
+<div class="hframe"><iframe title="Healing the Wait design thinking" src="interactive/design-thinking.html" loading="lazy" style="height:640px"></iframe></div>
+<div class="hinfo"><span>Click each stage of the process.</span><a href="interactive/design-thinking.html" target="_blank" rel="noopener">Open full screen ↗</a></div>
+<div style="height:34px"></div>
+<div class="eyebrow">Interactive prototypes</div>
+<div class="htabs" role="tablist">
+<button class="htab" role="tab" aria-selected="true" data-src="interactive/healque-app.html">HEALQUE app</button>
+<button class="htab" role="tab" aria-selected="false" data-src="interactive/healqueue-opening.html">App opening</button>
+<button class="htab" role="tab" aria-selected="false" data-src="interactive/healqueue-variation.html">Queue variation</button>
+</div>
+<div class="hframe"><iframe id="hviewer" title="Healing the Wait interactive" src="interactive/healque-app.html" loading="lazy"></iframe></div>
+<div class="hinfo"><span>Tap through the prototypes.</span><a id="hfull" href="interactive/healque-app.html" target="_blank" rel="noopener">Open full screen ↗</a></div>
+<div class="grid g2" style="margin-top:28px"><figure><img src="slides/book-mockup.svg" alt="Healing the Wait coffee table book mockups" loading="lazy"><figcaption>The “Healing the Wait” coffee table book.</figcaption></figure></div>
+<div class="grid g2" style="margin-top:16px"><figure><img src="slides/book-reading.svg" alt="Reading the Healing the Wait book" loading="lazy"></figure><figure><img src="slides/hospital-use.svg" alt="Patients using the app in a hospital waiting area" loading="lazy"><figcaption>The app in a hospital waiting room.</figcaption></figure></div>
+</div></section>
+
+<!-- 04 -->
+<section class="proj" id="sutra"><div class="wrap">
+<header><span class="num">04</span><div class="eyebrow gold">Sutra Edit · Fashion intelligence</div><h2>Startup Pitch</h2>
+<p class="lede">The business intelligence behind India's next generation of fashion brands. An India-focused platform that turns fragmented industry information into sharper decisions for emerging fashion founders.</p>
+<p class="mute" style="color:#c9bda8">Three layers: intelligence (weekly market edits and pricing benchmarks), community (founder-to-founder learning) and consulting (positioning, channels and growth), sold through a tiered yearly membership.</p></header>
+<div class="decks">
+<figure class="deck"><img src="slides/sutra-1.jpg" alt="Sutra Edit pitch deck slide 1" loading="lazy"></figure>
+<figure class="deck"><img src="slides/sutra-2.jpg" alt="Sutra Edit pitch deck slide 2" loading="lazy"></figure>
+<figure class="deck"><img src="slides/sutra-3.jpg" alt="Sutra Edit pitch deck slide 3" loading="lazy"></figure>
+<figure class="deck"><img src="slides/sutra-4.jpg" alt="Sutra Edit pitch deck slide 4" loading="lazy"></figure>
+<figure class="deck"><img src="slides/sutra-5.jpg" alt="Sutra Edit pitch deck slide 5" loading="lazy"></figure>
+<figure class="deck"><img src="slides/sutra-6.jpg" alt="Sutra Edit pitch deck slide 6" loading="lazy"></figure>
+<figure class="deck"><img src="slides/sutra-7.jpg" alt="Sutra Edit pitch deck slide 7" loading="lazy"></figure>
+</div>
+<div class="site">
+<div><div class="eyebrow gold">The live website</div><h3>Sutra Edit, online</h3>
+<p>The concept is built out as a working website: "India's fashion founders build here." It carries an editorial insights desk with monthly issues, the platform and founder circle, consulting, and a weekly newsletter sign-up.</p>
+<div class="tiers"><span>Starter ₹999</span><span>Pro ₹1,999</span><span>Premium ₹3,999</span><span>Founding 100</span></div>
+<a class="visit" href="https://sutra-edit-fashion.hatchable.site/" target="_blank" rel="noopener">Visit the website ↗</a>
+<div class="url">sutra-edit-fashion.hatchable.site</div></div>
+<ul><li><b>Insights</b><small>Editorial desk covering creative director moves, fabric trends and retail strategy.</small></li><li><b>Platform</b><small>Curated intelligence, founder community, expert consulting and global perspective for India.</small></li><li><b>Pricing</b><small>Three annual membership tiers, with checkout planned as a next step.</small></li></ul>
+</div>
+</div></section>
+
+<!-- 05 -->
+<section class="proj" id="spatial"><div class="wrap">
+<header><span class="num">05</span><div class="eyebrow terra">Spatial design · Concept to space</div><h2>Spatial Design Reimagined</h2>
+<p class="lede">A serene Mediterranean-style outdoor café courtyard, redesigned from concept to space. Terracotta roof tiles, white stucco walls, blue arched windows and a picket-fence patio make the compact espresso station feel open, calm and inviting.</p>
+<p class="mute">The project takes the idea through isometric views, floor plans and elevations, then follows the customer flow through the courtyard. It ends with perspective renders of the space in use.</p>
+<div class="pal"><span><i style="background:#c0583a"></i>Terracotta</span><span><i style="background:#f4efe6"></i>Stucco white</span><span><i style="background:#3f86b5"></i>Window blue</span><span><i style="background:#7d9560"></i>Olive green</span></div></header>
+<h3>From concept to space</h3>
+<figure><img src="slides/spatial-concept-to-space.jpg" alt="Isometric view, floor plan and technical drawings of the espresso station" loading="lazy"><figcaption>Isometric view, floor plan and technical drawings.</figcaption></figure>
+<h3 style="margin-top:44px">Redesigned spatial flow</h3>
+<figure><img src="slides/spatial-spatial-flow.jpg" alt="Courtyard layout with circulation path, elevations and material guide" loading="lazy"><figcaption>Courtyard layout, circulation path, elevations and material guide.</figcaption></figure>
+<h3 style="margin-top:44px">Space to life</h3>
+<figure><img src="slides/spatial-space-to-life.jpg" alt="3D views of the café interior with furniture and people" loading="lazy"><figcaption>The interior from different angles, furnished and in use.</figcaption></figure>
+<h3 style="margin-top:44px">Design in context</h3>
+<figure><img src="slides/spatial-design-in-context.jpg" alt="Patio, entryway, night view and interior perspectives of the café" loading="lazy"><figcaption>Patio, entryway, night mood and furniture details.</figcaption></figure>
+</div></section>
+
+<footer id="contact"><h2>Thank you.</h2>
+<a href="tel:+916301708182">+91 6301708182</a><a href="mailto:krutijayachitula27@gmail.com">krutijayachitula27@gmail.com</a></footer>
+
+<script>
+(function(){var v=document.getElementById('viewer'),f=document.getElementById('full');
+document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
+document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected','false')});
+t.setAttribute('aria-selected','true');v.src=t.dataset.src;f.href=t.dataset.src})})})();
+(function(){var v=document.getElementById('hviewer'),f=document.getElementById('hfull');
+document.querySelectorAll('.htab').forEach(function(t){t.addEventListener('click',function(){
+document.querySelectorAll('.htab').forEach(function(x){x.setAttribute('aria-selected','false')});
+t.setAttribute('aria-selected','true');v.src=t.dataset.src;f.href=t.dataset.src})})})();
+</script>
+
+</body>
+</html>

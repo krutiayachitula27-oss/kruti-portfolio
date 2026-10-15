@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Heal Queue — Variation 1</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{--bg:#DCEBF4;--ink:#002F42;--mute:#3f6577;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#071b24;--ink:#dcebf4;--mute:#9EC5DD}}
+:root[data-theme="dark"]{--bg:#071b24;--ink:#dcebf4;--mute:#9EC5DD}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Atkinson Hyperlegible",system-ui,"Noto Sans Devanagari","Noto Sans Kannada",sans-serif}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid #7FCCC4;outline-offset:2px}
+.top{display:flex;gap:10px;justify-content:center;padding:20px 16px 0}
+.top button{border:1px solid var(--mute);background:none;border-radius:999px;padding:8px 18px;min-height:44px}
+.stage{display:flex;justify-content:center;padding:20px 16px 48px}
+.ph{width:100%;max-width:380px;height:740px;border-radius:38px;overflow:hidden;display:flex;flex-direction:column;background:#9EC5DD;color:#002F42;box-shadow:0 24px 50px -28px #000a}
+.ph.big{font-size:118%}
+.hd{background:#002F42;color:#fff;padding:18px 22px 62px;display:flex;justify-content:space-between;align-items:center}
+.lg{display:flex;gap:4px;background:#ffffff1f;border-radius:999px;padding:3px}
+.lg button{border:0;background:none;color:#fff;border-radius:999px;padding:4px 11px;min-height:36px}
+.lg button[aria-pressed="true"]{background:#7FCCC4;color:#002F42;font-weight:700}
+.sc{flex:1;overflow:auto;padding:0 18px 14px;margin-top:-46px}
+h2{margin:18px 2px 10px;font-size:1.35em;color:#002F42}
+.tk{background:#fff;border-radius:22px;padding:20px;position:relative}
+.tk:after{content:"";position:absolute;left:16px;right:16px;bottom:-1px;border-bottom:3px dotted #9EC5DD}
+.no{font-size:4.8rem;font-weight:700;letter-spacing:-.04em;line-height:1;color:#005E85}
+.mu{color:#3f6577}
+.stp{list-style:none;margin:18px 0 0;padding:0}
+.stp li{position:relative;padding:0 0 16px 30px;color:#6b8796}
+.stp li:before{content:"";position:absolute;left:0;top:5px;width:14px;height:14px;border-radius:50%;border:2px solid #9EC5DD;background:#fff}
+.stp li:after{content:"";position:absolute;left:6px;top:20px;bottom:-3px;width:2px;background:#9EC5DD}
+.stp li:last-child:after{display:none}
+.stp li.done{color:#002F42}.stp li.done:before{background:#005E85;border-color:#005E85}
+.stp li.now{color:#002F42;font-weight:700}.stp li.now:before{background:#7FCCC4;border-color:#7FCCC4;box-shadow:0 0 0 5px #7FCCC466}
+.stp small{display:block;font-weight:400;color:#3f6577}
+.msg{background:#fff;border-radius:18px 18px 18px 6px;padding:14px 16px;margin:14px 0}
+.btn{display:block;width:100%;border:0;background:#002F42;color:#fff;border-radius:16px;padding:15px;min-height:52px;font-weight:700;margin-top:10px}
+.btn.o{background:none;color:#002F42;border:2px solid #002F42}
+.btn:disabled{background:#7FCCC4;color:#002F42}
+.card{background:#fff;border-radius:18px;padding:14px 16px;margin:10px 0}
+.ch{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px}
+.ch button{border:2px solid #005E85;background:#fff;border-radius:999px;padding:8px 14px;min-height:44px}
+.ch button[aria-pressed="true"]{background:#005E85;color:#fff}
+.ln{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid #9EC5DD}
+.ln:last-child{border:0}
+.pill{border-radius:999px;background:#7FCCC4;padding:2px 12px;font-size:.9rem;white-space:nowrap}.pill.w{background:#DCEBF4}
+.nav{display:grid;grid-template-columns:repeat(5,1fr);background:#fff;padding:6px}
+.nav button{border:0;background:none;padding:10px 2px;min-height:52px;border-radius:14px;color:#5b7a89;font-size:.82rem}
+.nav button[aria-selected="true"]{background:#002F42;color:#fff;font-weight:700}
+.big-n{font-size:2.6rem;font-weight:700;color:#005E85;line-height:1.1}
+.face{font-size:1.8rem;border:2px solid #005E85!important;border-radius:16px!important}
+</style>
+</head>
+<body>
+<div class="top"><button id="adv">Next patient goes in</button><button id="rst">Reset</button></div>
+<main class="stage"><div class="ph" id="ph"></div></main>
+<script>
+const L=["en","hi","kn"],D={
+hi:["Good morning, Asha","नमस्ते, आशा","ನಮಸ್ಕಾರ, ಆಶಾ"],
+tok:["Your token","आपका टोकन","ನಿಮ್ಮ ಟೋಕನ್"],
+ah:["{n} ahead of you · about {m} min","आपके आगे {n} · लगभग {m} मिनट","ನಿಮ್ಮ ಮುಂದೆ {n} · ಸುಮಾರು {m} ನಿಮಿಷ"],
+m4:["The doctor is finishing with the previous patient. Thank you for your patience.","डॉक्टर पिछले मरीज़ को देख रहे हैं। धैर्य के लिए धन्यवाद।","ವೈದ್ಯರು ಹಿಂದಿನ ರೋಗಿಯನ್ನು ನೋಡುತ್ತಿದ್ದಾರೆ. ತಾಳ್ಮೆಗೆ ಧನ್ಯವಾದಗಳು."],
+m3:["Almost there. Please stay close to the waiting area.","बस थोड़ा और। कृपया प्रतीक्षा क्षेत्र के पास रहें।","ಇನ್ನು ಸ್ವಲ್ಪ ಹೊತ್ತು. ದಯವಿಟ್ಟು ಕಾಯುವ ಜಾಗದ ಹತ್ತಿರವೇ ಇರಿ."],
+m1:["You're next. Please take a deep breath and get ready.","अगली बारी आपकी है। गहरी साँस लें और तैयार हो जाएँ।","ಮುಂದಿನ ಸರದಿ ನಿಮ್ಮದು. ಒಂದು ಆಳವಾದ ಉಸಿರು ತೆಗೆದುಕೊಂಡು ಸಿದ್ಧರಾಗಿ."],
+m0:["It's your turn. Please go to Room 204.","आपकी बारी है। कृपया कमरा 204 में जाएँ।","ನಿಮ್ಮ ಸರದಿ. ದಯವಿಟ್ಟು ಕೊಠಡಿ 204 ಕ್ಕೆ ಹೋಗಿ."],
+help:["Ask a staff member","स्टाफ से पूछें","ಸಿಬ್ಬಂದಿಯನ್ನು ಕೇಳಿ"],
+st:[["Checked in","चेक-इन हुआ","ಚೆಕ್-ಇನ್ ಆಗಿದೆ"],["Waiting","प्रतीक्षा","ಕಾಯುತ್ತಿದ್ದೀರಿ"],["Your turn","आपकी बारी","ನಿಮ್ಮ ಸರದಿ"]],
+nav:[["Queue","कतार","ಸರದಿ"],["Book","बुकिंग","ಬುಕ್"],["Rx","दवाइयाँ","ಔಷಧಿ"],["Reports","रिपोर्ट","ವರದಿ"],["More","और","ಇನ್ನಷ್ಟು"]],
+bk:["Book an appointment","अपॉइंटमेंट बुक करें","ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಬುಕ್ ಮಾಡಿ"],
+dp:["Department","विभाग","ವಿಭಾಗ"],
+dps:[["General Medicine","जनरल मेडिसिन","ಸಾಮಾನ್ಯ ವೈದ್ಯಕೀಯ"],["Dermatology","त्वचा रोग","ಚರ್ಮರೋಗ"],["Cardiology","हृदय रोग","ಹೃದಯರೋಗ"]],
+dy:["Day","दिन","ದಿನ"],tm:["Time","समय","ಸಮಯ"],
+cf:["Confirm booking","बुकिंग पक्की करें","ಬುಕಿಂಗ್ ದೃಢೀಕರಿಸಿ"],
+dn:["Booked. We'll remind you the day before.","बुक हो गया। एक दिन पहले याद दिलाएँगे।","ಬುಕ್ ಆಗಿದೆ. ಒಂದು ದಿನ ಮುಂಚೆ ನೆನಪಿಸುತ್ತೇವೆ."],
+rx:["Prescriptions","दवाइयाँ","ಔಷಧಿಗಳು"],
+mo:["Morning","सुबह","ಬೆಳಿಗ್ಗೆ"],ni:["Night","रात","ರಾತ್ರಿ"],af:["after food","खाने के बाद","ಊಟದ ನಂತರ"],
+dl:["{n} days left","{n} दिन बचे","{n} ದಿನ ಬಾಕಿ"],
+rf:["Order refill","रिफ़िल मँगाएँ","ರೀಫಿಲ್ ಕೇಳಿ"],rd:["Refill requested","रिफ़िल का अनुरोध भेजा","ರೀಫಿಲ್ ವಿನಂತಿ ಕಳುಹಿಸಲಾಗಿದೆ"],
+rp:["Reports","रिपोर्ट","ವರದಿಗಳು"],ry:["Ready","तैयार","ಸಿದ್ಧ"],pr:["Processing","प्रक्रिया में","ಸಿದ್ಧವಾಗುತ್ತಿದೆ"],
+sh:["Share with doctor","डॉक्टर को भेजें","ವೈದ್ಯರಿಗೆ ಕಳುಹಿಸಿ"],
+pay:["Payment","भुगतान","ಪಾವತಿ"],due:["To pay","देय राशि","ಪಾವತಿಸಬೇಕಾದ ಮೊತ್ತ"],
+co:["Consultation","परामर्श","ಸಮಾಲೋಚನೆ"],lb:["Lab tests","लैब जाँच","ಲ್ಯಾಬ್ ಪರೀಕ್ಷೆ"],
+upi:["Pay with UPI","UPI से भुगतान","UPI ಮೂಲಕ ಪಾವತಿ"],cs:["Pay at the counter","काउंटर पर भुगतान","ಕೌಂಟರ್‌ನಲ್ಲಿ ಪಾವತಿ"],
+fb:["Feedback","प्रतिक्रिया","ಅಭಿಪ್ರಾಯ"],fq:["How was your wait?","आपका इंतज़ार कैसा रहा?","ನಿಮ್ಮ ಕಾಯುವಿಕೆ ಹೇಗಿತ್ತು?"],
+th:["Thank you. Your feedback reached us.","धन्यवाद, आपकी बात हम तक पहुँच गई।","ಧನ್ಯವಾದ, ನಿಮ್ಮ ಅಭಿಪ್ರಾಯ ತಲುಪಿದೆ."],
+cl:["Find a clinic","क्लिनिक खोजें","ಕ್ಲಿನಿಕ್ ಹುಡುಕಿ"],
+tx:["Larger text","बड़ा अक्षर","ದೊಡ್ಡ ಅಕ್ಷರ"]};
+const S={ahead:4,lang:0,tab:0,dept:0,day:0,slot:-1,booked:false,rx:[0,0],fb:-1,big:false};
+const t=(k,r={})=>{let s=D[k][S.lang];for(const x in r)s=s.replace("{"+x+"}",r[x]);return s};
+const ti=(k,i)=>D[k][i][S.lang];
+const say=()=>S.ahead>=4?t("m4"):S.ahead>=2?t("m3"):S.ahead===1?t("m1"):t("m0");
+const chips=(key,list,sel)=>`<div class="ch">${list.map((x,i)=>`<button data-c="${key}" data-i="${i}" aria-pressed="${sel===i}">${x}</button>`).join("")}</div>`;
+const docs=["Dr. Mehta","Dr. Rao","Dr. Nair"],days=["Mon 26","Tue 27","Wed 28"],slots=["9:30","10:00","11:15"];
+const meds=[["Paracetamol 500 mg","1 · 1",5],["Vitamin D3 60k IU","1 / week",3]];
+
+function view(){
+  const a=S.ahead,cur=a?1:2;
+  if(S.tab===0)return `<div class="tk"><span class="mu">${t("tok")}</span><div class="no">A37</div><ul class="stp">${[0,1,2].map(i=>`<li class="${i<cur?"done":i===cur?"now":""}">${ti("st",i)}<small>${i===0?"10:42":i===1?(a?t("ah",{n:a,m:a*4}):"✓"):"Room 204 · Dr. Mehta"}</small></li>`).join("")}</ul></div>
+  <div class="msg">${say()}</div><button class="btn o">${t("help")}</button>`;
+  if(S.tab===1){
+    if(S.booked)return `<h2>${t("bk")}</h2><div class="card"><div class="big-n">${days[S.day]} · ${slots[S.slot]}</div><p>${docs[S.dept]} · ${ti("dps",S.dept)}</p></div><div class="msg">${t("dn")}</div>`;
+    return `<h2>${t("bk")}</h2><div class="card"><b>${t("dp")}</b>${chips("dept",D.dps.map(x=>x[S.lang]),S.dept)}<p class="mu" style="margin:-4px 0 10px">${docs[S.dept]}</p><b>${t("dy")}</b>${chips("day",days,S.day)}<b>${t("tm")}</b>${chips("slot",slots,S.slot)}</div><button class="btn" id="bk" ${S.slot<0?"disabled":""}>${t("cf")}</button>`}
+  if(S.tab===2)return `<h2>${t("rx")}</h2>`+meds.map((m,i)=>`<div class="card"><b>${m[0]}</b><p class="mu">${t("mo")} + ${t("ni")} ${m[1]!=="1 · 1"?"":""}· ${t("af")}</p><div class="ln"><span class="pill">${t("dl",{n:m[2]})}</span><button class="btn o" style="width:auto;margin:0;padding:8px 14px;min-height:44px" data-r="${i}" ${S.rx[i]?"disabled":""}>${S.rx[i]?t("rd"):t("rf")}</button></div></div>`).join("");
+  if(S.tab===3)return `<h2>${t("rp")}</h2><div class="card">${[["Blood test",1],["X-ray",0],["ECG",1]].map(r=>`<div class="ln"><b>${r[0]}</b><span class="pill ${r[1]?"":"w"}">${r[1]?t("ry"):t("pr")}</span></div>`).join("")}</div><button class="btn">${t("sh")}</button>`;
+  return `<h2>${t("pay")}</h2><div class="card"><span class="mu">${t("due")}</span><div class="big-n">₹1,700</div><div class="ln"><span>${t("co")}</span><b>₹500</b></div><div class="ln"><span>${t("lb")}</span><b>₹1,200</b></div></div><button class="btn">${t("upi")}</button><button class="btn o">${t("cs")}</button>
+  <h2>${t("fb")}</h2><div class="card"><p>${S.fb<0?t("fq"):t("th")}</p>${S.fb<0?`<div class="ch">${["😞","😐","🙂"].map((f,i)=>`<button class="face" data-f="${i}" aria-label="${i}">${f}</button>`).join("")}</div>`:""}</div>
+  <h2>${t("cl")}</h2><div class="card"><div class="ln"><b>Heal Clinic · Indiranagar</b><span class="mu">1.2 km</span></div><div class="ln"><b>Heal Clinic · Jayanagar</b><span class="mu">3.4 km</span></div></div>
+  <button class="btn o" id="bg" aria-pressed="${S.big}">${t("tx")}</button>`;
+}
+function render(){
+  document.documentElement.lang=L[S.lang];
+  const p=document.getElementById("ph");p.className="ph"+(S.big?" big":"");
+  p.innerHTML=`<div class="hd"><b>${t("hi")}</b><div class="lg">${["EN","हि","ಕ"].map((n,i)=>`<button data-l="${i}" aria-pressed="${S.lang===i}">${n}</button>`).join("")}</div></div><div class="sc">${view()}</div><nav class="nav" role="tablist">${D.nav.map((n,i)=>`<button role="tab" aria-selected="${S.tab===i}" data-t="${i}">${n[S.lang]}</button>`).join("")}</nav>`;
+}
+document.body.addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;const d=b.dataset;
+  if(d.l)S.lang=+d.l;else if(d.t){S.tab=+d.t}else if(d.c){S[d.c]=+d.i;if(d.c==="dept")S.slot=-1}
+  else if(d.r)S.rx[+d.r]=1;else if(d.f)S.fb=+d.f;else if(b.id==="bk")S.booked=true;else if(b.id==="bg")S.big=!S.big;
+  else if(b.id==="adv"){if(S.ahead>0)S.ahead--}else if(b.id==="rst"){Object.assign(S,{ahead:4,tab:0,slot:-1,booked:false,rx:[0,0],fb:-1})}
+  else return;
+  render();
+});
+render();
+</script>
+</body>
+</html>
